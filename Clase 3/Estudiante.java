@@ -11,6 +11,12 @@ public class Estudiante {
         this.nombre = nombre;
         this.facultad = facultad;
     }
+    public String getFacultad(){
+        return facultad;
+    }
+    public String getNombre(){
+        return nombre;
+    }
 
     public String toString() {
         return "Estudiante { id: " + id + " nombre: " + nombre + " facultad " + facultad + "}";
@@ -21,4 +27,21 @@ public class Estudiante {
         return 0;
 
     }
+    //Método para saber cuántos estudiantes tiene una facultad
+public int contarEstudiantes(Estudiante[] e, String nombreFacultad) {
+    int contador = 0;
+    for (int i = 0; i < e.length; i++) {
+        if (e[i].getFacultad().equals(nombreFacultad)) {
+            contador++;
+        }
+    }
+    return contador;
+}
+//Método para mostrar todos los nombres de los estudiantes
+public void mostrarNombres(Estudiante[] e) {
+    for (int i = 0; i < e.length; i++) {
+        System.out.println(e[i].getNombre());
+    }
+}
+
 }

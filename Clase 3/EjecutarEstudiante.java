@@ -13,4 +13,6 @@ public class EjecutarEstudiante {
             System.out.println(e[i]);
         }
     }
+   
 }
+  
