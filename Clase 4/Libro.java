@@ -18,6 +18,7 @@ public class Libro {
         Titulo = titulo;
         this.id = id;
     }
+    
     @Override
     public String toString() {
         return "Libro [precio=" + precio + ", Titulo=" + Titulo + ", id=" + id + "]";
@@ -31,5 +32,6 @@ public class Libro {
     public void setId(int id) {
         this.id = id;
     }
+    
 
 }
