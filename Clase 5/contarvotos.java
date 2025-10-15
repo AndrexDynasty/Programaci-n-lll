@@ -14,6 +14,10 @@ public class contarvotos {
         }
     return VotosPos.size()-VotosNeg.size();
     }
+
+
+    
+
     
         
     
