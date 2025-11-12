@@ -4,7 +4,6 @@ import java.util.*;
 
 public class Lista {
 
-
     public static List<List<int[]>> convertirAMatrizLista(int[][] grafo) {
         int n = grafo.length;
         List<List<int[]>> lista = new ArrayList<>();
@@ -12,7 +11,7 @@ public class Lista {
         for (int i = 0; i < n; i++) {
             lista.add(new ArrayList<>());
             for (int j = 0; j < n; j++) {
-                if (grafo[i][j] != 0) { // Hay conexión
+                if (grafo[i][j] != 0) {
                     lista.get(i).add(new int[]{j, grafo[i][j]});
                 }
             }
@@ -20,7 +19,6 @@ public class Lista {
         return lista;
     }
 
- 
     public static int verticeMinimo(int[] distancia, boolean[] visitado) {
         int min = Integer.MAX_VALUE, indice = -1;
         for (int v = 0; v < distancia.length; v++) {
@@ -31,7 +29,6 @@ public class Lista {
         }
         return indice;
     }
-
    
     public static void dijkstraLista(List<List<int[]>> lista, int inicio) {
         int n = lista.size();
@@ -55,7 +52,6 @@ public class Lista {
                 }
             }
         }
-
         
         System.out.println("Distancias más cortas desde el vértice " + inicio + ":");
         for (int i = 0; i < n; i++) {
@@ -76,10 +72,8 @@ public class Lista {
             {0, 0, 2, 0, 0, 0, 6, 7, 0}
         };
 
-       
         List<List<int[]>> listaAdyacencia = convertirAMatrizLista(grafo);
-
-       
+        
         System.out.println(" Lista de Adyacencia ");
         for (int i = 0; i < listaAdyacencia.size(); i++) {
             System.out.print("Vértice " + i + " -> ");
@@ -88,8 +82,6 @@ public class Lista {
             }
             System.out.println();
         }
-
-     
        
         dijkstraLista(listaAdyacencia, 0);
     }
