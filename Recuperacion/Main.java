@@ -4,7 +4,8 @@ import java.util.*;
 
 public class Main {
 
-   
+    
+    //  CLASES INTERNAS: Nodo y Arista 
 
     static class Node {
         String name;
@@ -22,6 +23,8 @@ public class Main {
         }
     }
 
+  
+    //  GRAFO CON LISTAS DE ADYACENCIA
 
     static class Graph {
         Map<Node, ArrayList<Edge>> adj = new HashMap<>();
@@ -32,7 +35,7 @@ public class Main {
 
         void addEdge(Node a, Node b, int peso) {
             adj.get(a).add(new Edge(b, peso));
-            adj.get(b).add(new Edge(a, peso)); 
+            adj.get(b).add(new Edge(a, peso)); // grafo no dirigido
         }
 
         Map<Node, ArrayList<Edge>> getAdj() {
@@ -40,6 +43,8 @@ public class Main {
         }
     }
 
+ 
+    //  ALGORITMO DE DIJKSTRA
     
     static Map<Node, Integer> dijkstra(Graph graph, Node inicio) {
 
@@ -71,7 +76,9 @@ public class Main {
         return dist;
     }
 
-
+    
+    // QUICK SORT PARA ORDENAR LOS RECORRIDOS
+    
     static void quickSort(List<Integer> arr, int low, int high) {
         if (low < high) {
             int pi = partition(arr, low, high);
@@ -102,12 +109,11 @@ public class Main {
     }
 
   
-
     public static void main(String[] args) {
 
         Graph g = new Graph();
 
-        // Crear nodos (ciudades)
+        // Crear nodos 
         Node cali = new Node("Cali");
         Node buga = new Node("Buga");
         Node tulua = new Node("Tuluá");
@@ -134,7 +140,7 @@ public class Main {
         g.addEdge(monteria, sincelejo, 55);
         g.addEdge(sincelejo, cartagena, 190);
 
-      
+        // Ejecutar Dijkstra desde Cali
         Map<Node, Integer> distancias = dijkstra(g, cali);
 
         System.out.println("Distancias desde Cali:\n");
@@ -146,7 +152,7 @@ public class Main {
             valores.add(e.getValue());
         }
 
-       
+        // Ordenar recorridos con QuickSort
         quickSort(valores, 0, valores.size() - 1);
 
         System.out.println("\nRecorridos ordenados (menor a mayor):");
